@@ -2,9 +2,9 @@ from flask import Flask, send_file, request, render_template_string, redirect, u
 import os
 import shutil
 import logging
+from send2trash import send2trash 
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.join(ROOT_DIR, "base")
 GOOD_DIR = os.path.join(ROOT_DIR, "bagus")
@@ -15,7 +15,7 @@ ALLOWED_EXT = ('.webp', ".png", ".jpg", ".jpeg")
 def get_images_from_directory(directory):
     """
     Mengambil semua file gambar dari direktori yang diberikan.
-    
+
     Parameters:
     directory (str): Jalur direktori yang akan di-scan untuk mencari file gambar.
     
@@ -312,7 +312,7 @@ def delete():
         logging.debug("No images to delete.")
         return "", 400
     try:
-        os.remove(os.path.join(current_folder, images[index]))
+        send2trash(os.path.join(current_folder, images[index]))
         logging.debug(f"Deleted file: {images[index]} from {current_folder}")
     except Exception as e:
         logging.error(f"Error deleting file: {str(e)}")
