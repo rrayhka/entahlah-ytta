@@ -81,8 +81,8 @@ def reset():
 
 @app.route("/image")
 def image():
-    if not images:
-        logging.debug("No images available to display.")
+    if not images or not current_folder:
+        logging.debug("No images available to display or current_folder is None.")
         return "", 404
     logging.debug(f"Serving image: {images[index]} from {current_folder}")
     return send_file(os.path.join(current_folder, images[index]), mimetype='image/webp')
@@ -141,11 +141,12 @@ def move():
 @app.route("/delete")
 def delete():
     global images, index, current_folder
-    if not images:
-        logging.debug("No images to delete.")
+    if not images or not current_folder:
+        logging.debug("No images to delete or current_folder is None.")
         return "", 400
     try:
-        send2trash(os.path.join(current_folder, images[index]))
+        file_path = os.path.join(current_folder, images[index])
+        send2trash(file_path)
         logging.debug(f"Deleted file: {images[index]} from {current_folder}")
     except Exception as e:
         logging.error(f"Error deleting file: {str(e)}")
