@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Folder</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+    <div class="text-center">
+        <h1 class="text-3xl font-bold mb-6">Select Folder</h1>
+        <div class="space-x-4">
+            <button onclick="window.location.href='/folder/good'" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded">
+                Good
+            </button>
+            <button onclick="window.location.href='/folder/bad'" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded">
+                Bad
+            </button>
+            <button onclick="window.location.href='/folder/scenery'" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
+                Scenery
+            </button>
+            <button onclick="window.location.href='/folder/base'" class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded">
+                Base
+            </button>
+        </div>
+    </div>
+</body>
+</html>

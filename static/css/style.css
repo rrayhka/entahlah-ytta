@@ -1,0 +1,42 @@
+/* Tailwind CSS custom styles for the Pixiv Safe Batch application */
+
+/* General styles */
+body {
+    @apply bg-gray-900 text-white font-sans;
+}
+
+h1 {
+    @apply text-3xl font-bold mb-4;
+}
+
+button {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+}
+
+button:focus {
+    @apply outline-none ring-2 ring-blue-500;
+}
+
+/* Image styles */
+img {
+    @apply max-w-full max-h-80vh mx-auto rounded-lg shadow-lg;
+}
+
+/* Navigation button styles */
+.nav-buttons {
+    @apply flex justify-center space-x-4 mt-4;
+}
+
+/* Countdown message styles */
+.countdown-message {
+    @apply text-lg mt-4;
+}
+
+/* Folder selection styles */
+.folder-selection {
+    @apply flex flex-col items-center space-y-4;
+}
+
+.folder-selection button {
+    @apply w-1/2 md:w-1/4;
+}
